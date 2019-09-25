@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+:root {
+  --kitten-img: url('https://placekitten.com/g/300/300');
+  --kitten-img2: url('https://placekitten.com/g/500/500');
+  --kitten-img3: url('https://placekitten.com/g/700/700');
+  --kitten-img4: url('https://placekitten.com/g/800/800');
+  --kitten-img5: url('https://placekitten.com/g/880/880');
+  --kitten-img6: url('https://placekitten.com/g/900/900');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.98);
+  z-index: 1;
+  display: none;
+}
+
+.photo-grid {
+  display: flex;
+  position: relative;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin-top: 5vh;
+  width: 90vw;
+  height: 90vh;
+  flex-wrap: wrap;
+}
+
+.photo-grid__photo:nth-of-type(2) {
+  background-image: var(--kitten-img2);
+}
+.photo-grid__photo:nth-of-type(3) {
+  background-image: var(--kitten-img3);
+}
+.photo-grid__photo:nth-of-type(4) {
+  background-image: var(--kitten-img4);
+}
+.photo-grid__photo:nth-of-type(5) {
+  background-image: var(--kitten-img5);
+}
+.photo-grid__photo:nth-of-type(6) {
+  background-image: var(--kitten-img6);
+}
+
+.photo-grid__photo {
+  position: relative;
+  transition: all .2s ease-in-out;
+  background-color: white;
+  height: 300px;
+  min-width: calc(100%/3);
+  background-image: var(--kitten-img);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.photo-grid__photo:hover {
+  transform: scale(1.025);
+  z-index: 1;
+}
+.photo-grid__photo--activated {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.photo-grid__photo--activated:hover {
+  transform: none;
+}
+
+.photo__price {
+  transition: all .2s ease-in-out;
+  font-family: 'Dosis', sans-serif;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 5px;
+}
+.photo__tagged-name {
+  transition: all .2s ease-in-out;
+  font-family: 'Dosis', sans-serif;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: white;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.photo-grid__photo:hover > .photo__price,
+.photo-grid__photo:hover > .photo__tagged-name {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.photo__user-icon {
+  transition: all .2s ease-in-out;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 7px 5px;
+}
+.photo__tagged-name:hover .photo__user-icon {
+  left: -24px;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+}
